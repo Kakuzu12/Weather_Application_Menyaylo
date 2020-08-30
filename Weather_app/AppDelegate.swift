@@ -116,11 +116,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func update() {
-            let networkManager = WeatherNetworkManager()
-            let weatherEntityArray = self.fetchAllCities()
-            for i in 0..<weatherEntityArray!.count{
-                networkManager.fetchCurrentWeatherForUpdate(city: weatherEntityArray?[i].name ?? "", weatherEntity: weatherEntityArray?[i])
-            }
+        let networkManager = WeatherNetworkManager()
+        let weatherEntityArray = self.fetchAllCities()
+        for i in 0..<weatherEntityArray!.count{
+            networkManager.fetchCurrentWeatherForUpdate(city: weatherEntityArray?[i].name ?? "", weatherEntity: weatherEntityArray?[i])
+        }
     }
     // MARK: - FetchedResultsControllerCreation
     lazy var fetchedResultsController: NSFetchedResultsController<WeatherEntity> = {

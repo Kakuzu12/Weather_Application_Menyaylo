@@ -31,7 +31,7 @@
 		74414DA024CCCD2700D8263E /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74414D9F24CCCD2700D8263E /* NetworkManagerProtocol.swift */; };
 		74414DA324D03BB600D8263E /* WeatherNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74414DA224D03BB600D8263E /* WeatherNetworkManager.swift */; };
 		74414DA524D0EE9F00D8263E /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74414DA424D0EE9F00D8263E /* ForecastViewController.swift */; };
-		7442981424FAB4D2005656DA /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7442981324FAB4D2005656DA /* TableViewExtension.swift */; };
+		7444739924FC70E200CEE622 /* RefreshControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7444739824FC70E200CEE622 /* RefreshControllerExtension.swift */; };
 		7457DB0624E6007500DA3368 /* Weather_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457DB0524E6007500DA3368 /* Weather_appTests.swift */; };
 		7457DBB424EC0F0800DA3368 /* Climate-Change-and-the-New-Language-of-Weather-800x450.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7457DBB324EC0F0700DA3368 /* Climate-Change-and-the-New-Language-of-Weather-800x450.jpg */; };
 		7457DBE224EE845100DA3368 /* Weather_app.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74414D8E24CC878F00D8263E /* Weather_app.xcdatamodeld */; };
@@ -85,7 +85,7 @@
 		74414D9F24CCCD2700D8263E /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		74414DA224D03BB600D8263E /* WeatherNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkManager.swift; sourceTree = "<group>"; };
 		74414DA424D0EE9F00D8263E /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
-		7442981324FAB4D2005656DA /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
+		7444739824FC70E200CEE622 /* RefreshControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControllerExtension.swift; sourceTree = "<group>"; };
 		7457DB0324E6007500DA3368 /* Weather_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Weather_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7457DB0524E6007500DA3368 /* Weather_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_appTests.swift; sourceTree = "<group>"; };
 		7457DB0724E6007500DA3368 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				74383F3624D78B99005A2619 /* ImageViewExtension.swift */,
 				74383F3A24D796B8005A2619 /* IntExtension.swift */,
 				744024B424E5B35A009B4D8E /* WeatherModelConverter.swift */,
-				7442981324FAB4D2005656DA /* TableViewExtension.swift */,
+				7444739824FC70E200CEE622 /* RefreshControllerExtension.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -376,12 +376,12 @@
 				744024BC24E5B3E7009B4D8E /* DetailedWeatherEntity+CoreDataClass.swift in Sources */,
 				74383F3524D78B6F005A2619 /* KelvinToCelciusConverter.swift in Sources */,
 				749720E824F3161D005BF6FC /* WeatherTableController.swift in Sources */,
-				7442981424FAB4D2005656DA /* TableViewExtension.swift in Sources */,
 				74383F2D24D78A39005A2619 /* NetworkProperties.swift in Sources */,
 				744024BA24E5B3E7009B4D8E /* WeatherEntity+CoreDataClass.swift in Sources */,
 				74414DA524D0EE9F00D8263E /* ForecastViewController.swift in Sources */,
 				744024BB24E5B3E7009B4D8E /* WeatherEntity+CoreDataProperties.swift in Sources */,
 				74414D8A24CC878F00D8263E /* WeatherLocationController.swift in Sources */,
+				7444739924FC70E200CEE622 /* RefreshControllerExtension.swift in Sources */,
 				7437FEE524FA1158008B3D33 /* NetworkManagerForUpdateProtocol.swift in Sources */,
 				74383F3224D78ABA005A2619 /* Forecast.swift in Sources */,
 				74383F3024D78A88005A2619 /* Weather.swift in Sources */,

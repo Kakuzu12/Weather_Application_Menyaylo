@@ -39,7 +39,7 @@ final class WeatherTableController: UIViewController, CLLocationManagerDelegate 
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        self.scrollViewDidEndDragging(tableView, willDecelerate: true)
+        //self.scrollViewDidEndDragging(tableView, willDecelerate: true)
         view.backgroundColor = .systemBackground
         self.navigationItem.rightBarButtonItem = setupButton()
         safeArea = view.layoutMarginsGuide
@@ -69,23 +69,16 @@ final class WeatherTableController: UIViewController, CLLocationManagerDelegate 
         self.present(alertController, animated: true, completion: nil)
     }
     //MARK: - RefreshSetup
-    @objc private func refreshWeatherData(sender: UIRefreshControl?, event: UIEvent?) {
-        AppDelegate.sharedManager.update()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
-            self.tableView.beginRefreshing(refreshControl: self.refreshControl)
-        }
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if refreshControl.isRefreshing == true {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4.0){
-                self.tableView.endRefreshing(refreshControl: self.refreshControl)
+    @objc private func refreshPulled() {
+        self.refreshControl.customBeginRefreshing(refreshControl: self.refreshControl)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [refreshControl] in
+            AppDelegate.sharedManager.update()
+            refreshControl.customEndRefreshing(refreshControl: refreshControl)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
                 self.tableView.reloadData()
             }
         }
     }
-    
-    
     //MARK: - DataLoading
     private func loadData(city: String){
         networkManager.fetchCurrentWeather(city: city) { (weather) in
@@ -108,7 +101,6 @@ final class WeatherTableController: UIViewController, CLLocationManagerDelegate 
                     
                     self.present(alertController, animated: true, completion: nil)
                 }
-                
             }
         }
     }
@@ -155,8 +147,9 @@ final class WeatherTableController: UIViewController, CLLocationManagerDelegate 
         } else {
             tableView.addSubview(refreshControl)
         }
-        refreshControl.addTarget(self, action: #selector(refreshWeatherData(sender: event:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
         refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
+        refreshControl.backgroundColor = UIColor.clear
     }
     
     private func setupButton() -> UIBarButtonItem{
@@ -178,9 +171,6 @@ final class WeatherTableController: UIViewController, CLLocationManagerDelegate 
         }
     }
 }
-
-
-
 //MARK: - TableViewConfiguration
 extension WeatherTableController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView,numberOfRowsInSection section: Int) -> Int {
