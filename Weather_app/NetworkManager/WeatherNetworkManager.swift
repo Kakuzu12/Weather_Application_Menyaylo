@@ -131,42 +131,41 @@ final class WeatherNetworkManager : NetworkManagerProtocol,NetworkManagerForUpda
                         totalData = totalData - 1
                     }
                     
-                    
-                    if weekdaycomponent == currentWeekDay {
+                    switch weekdaycomponent {
+                    case currentWeekDay:
                         let info = WeatherInfo(temp: mainTemp, min_temp: minTemp, max_temp: maxTemp, description: descriptionTemp, icon: icon, time: time)
                         currentDayForecast.append(info)
                         currentDayTemp = ForecastTemperature(weekDay: currentweekdaysymbol, hourlyForecast: currentDayForecast)
-                        
                         fetchedData.append(info)
-                    }else if weekdaycomponent == currentWeekDay.incrementWeekDays(by: 1) {
+                    case currentWeekDay.incrementWeekDays(by: 1):
                         let info = WeatherInfo(temp: mainTemp, min_temp: minTemp, max_temp: maxTemp, description: descriptionTemp, icon: icon, time: time)
                         secondDayForecast.append(info)
                         secondDayTemp = ForecastTemperature(weekDay: weekday, hourlyForecast: secondDayForecast)
-                        
                         fetchedData.append(info)
-                    }else if weekdaycomponent == currentWeekDay.incrementWeekDays(by: 2) {
+                    case currentWeekDay.incrementWeekDays(by: 2):
                         let info = WeatherInfo(temp: mainTemp, min_temp: minTemp, max_temp: maxTemp, description: descriptionTemp, icon: icon, time: time)
                         thirddayDayForecast.append(info)
                         
                         thirdDayTemp = ForecastTemperature(weekDay: weekday, hourlyForecast: thirddayDayForecast)
                         fetchedData.append(info)
-                    }else if weekdaycomponent == currentWeekDay.incrementWeekDays(by: 3) {
+                    case currentWeekDay.incrementWeekDays(by: 3):
                         let info = WeatherInfo(temp: mainTemp, min_temp: minTemp, max_temp: maxTemp, description: descriptionTemp, icon: icon, time: time)
                         fourthDayDayForecast.append(info)
                         
                         fourthDayTemp = ForecastTemperature(weekDay: weekday, hourlyForecast: fourthDayDayForecast)
                         fetchedData.append(info)
-                    }else if weekdaycomponent == currentWeekDay.incrementWeekDays(by: 4){
+                    case currentWeekDay.incrementWeekDays(by: 4):
                         let info = WeatherInfo(temp: mainTemp, min_temp: minTemp, max_temp: maxTemp, description: descriptionTemp, icon: icon, time: time)
                         fifthDayForecast.append(info)
                         fifthDayTemp = ForecastTemperature(weekDay: weekday, hourlyForecast: fifthDayForecast)
                         fetchedData.append(info)
-                        
-                    }else if weekdaycomponent == currentWeekDay.incrementWeekDays(by: 5) {
+                    case currentWeekDay.incrementWeekDays(by: 5):
                         let info = WeatherInfo(temp: mainTemp, min_temp: minTemp, max_temp: maxTemp, description: descriptionTemp, icon: icon, time: time)
                         sixthDayForecast.append(info)
                         sixthDayTemp = ForecastTemperature(weekDay: weekday, hourlyForecast: sixthDayForecast)
                         fetchedData.append(info)
+                    default:
+                        break
                     }
                     
                     if fetchedData.count == totalData {
