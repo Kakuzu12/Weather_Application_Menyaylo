@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
     private var converter: WeatherModelConverterInput!
     static let sharedManager = AppDelegate()
-    private override init() {} // Prevent clients from creating another instance.
     
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Weather_app")
@@ -101,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    private func fetchAllCities() -> [WeatherEntity]?{
+    func fetchAllCities() -> [WeatherEntity]?{
         let managedContext = AppDelegate.sharedManager.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "WeatherEntity")

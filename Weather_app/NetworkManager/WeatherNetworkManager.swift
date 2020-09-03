@@ -36,12 +36,12 @@ final class WeatherNetworkManager : NetworkManagerProtocol,NetworkManagerForUpda
         }
         let urlRequest = URLRequest(url: url)
         URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            guard let data = data else {return }
+            guard let data = data else {return}
             do {
                 let currentWeather = try JSONDecoder().decode(WeatherModel.self, from: data)
                 completion(currentWeather)
             } catch {
-                print(error)
+                print("Can not decode data!")
             }
         }.resume()
     }

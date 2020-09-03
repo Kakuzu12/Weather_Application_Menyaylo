@@ -75,6 +75,7 @@ final class WeatherTableController: UIViewController, CLLocationManagerDelegate 
             AppDelegate.sharedManager.update()
             refreshControl.customEndRefreshing(refreshControl: refreshControl)
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                print("me")
                 self.tableView.reloadData()
             }
         }
